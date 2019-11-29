@@ -10,6 +10,7 @@ Bootstrap(app)
 def index():
     if request.method == 'POST':
         if request.form['submit_button'] == 'Do Something':
+            print("poga nospiesta")
             os.system("mpg321 hello.mp3")         
         elif request.form['submit_button'] == 'Do Something Else':
             os.system("mpg321 service.mp3") 
