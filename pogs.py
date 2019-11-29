@@ -1,7 +1,7 @@
 # -- coding: utf-8 -
 
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 Bootstrap(app)
@@ -13,8 +13,10 @@ def index():
             os.system("mpg321 hello.mp3")         
         elif request.form['submit_button'] == 'Do Something Else':
             os.system("mpg321 service.mp3") 
- 
-   elif request.method == 'GET':
+        else:
+            return render_template('index.html')
+    elif request.method == 'GET':
+        print("No Post Back Call")
     return render_template('index.html')
     
     
