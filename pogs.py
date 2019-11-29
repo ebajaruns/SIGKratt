@@ -1,6 +1,6 @@
 # -- coding: utf-8 -
 
-
+import os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 app = Flask(__name__)
@@ -8,8 +8,15 @@ Bootstrap(app)
   
 @app.route('/')
 def index():
-    
+    if request.method == 'POST':
+        if request.form['submit_button'] == 'Do Something':
+            os.system("mpg321 hello.mp3")         
+        elif request.form['submit_button'] == 'Do Something Else':
+            os.system("mpg321 service.mp3") 
+ 
+   elif request.method == 'GET':
     return render_template('index.html')
+    
     
 @app.route('/uzn')
 def cakes():
