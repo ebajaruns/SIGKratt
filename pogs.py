@@ -8,6 +8,7 @@ Bootstrap(app)
   
 @app.route('/')
 def index():
+    os.system("mpg321 hello.mp3") 
     if request.method == 'POST':
         if request.form['submit_button'] == 'Do Something':
             print("poga nospiesta")
